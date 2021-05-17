@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_first="true"
+        android:drawable="@drawable/ic_action_int_spk"
+        />
+    <item
+        android:state_middle="true"
+        android:drawable="@drawable/ic_action_both_spk"
+        />
+    <item
+        android:state_last="true"
+        android:drawable="@drawable/ic_action_ext_spk"
+        />
+</selector>

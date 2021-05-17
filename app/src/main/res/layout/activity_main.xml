@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="com.blogspot.android_er.androidudpclient.MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/imageButtonVolUp"
+                android:layout_width="match_parent"
+                android:layout_height="93dp"
+                android:backgroundTint="#FFFFFF"
+                android:src="@drawable/custom_volup" />
+
+            <ImageButton
+                android:id="@+id/imageButtonVolDown"
+                android:layout_width="190dp"
+                android:layout_height="88dp"
+                android:backgroundTint="#FFFFFF"
+                android:src="@drawable/custom_voldown" />
+
+            <Switch
+                android:id="@+id/switchVolMute"
+                android:layout_width="match_parent"
+                android:layout_height="82dp"
+                android:button="@drawable/custom_mute"
+                android:text="Mute"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="172dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/imageButtonPower"
+                android:layout_width="match_parent"
+                android:layout_height="93dp"
+                android:backgroundTint="#FFFFFF"
+                android:src="@drawable/custom_power" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Speaker Selection"
+        android:textAlignment="center"
+        android:textColor="#0F3267"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <LinearLayout
+        android:layout_width="272dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="146dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_speaker_green_48dp"
+            android:tint="#1B6E1A" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupSPK"
+            android:layout_width="118dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <RadioButton
+                android:id="@+id/radioBothSpk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Both"
+                android:textSize="18sp"
+                android:onClick="OnSpeakerSelection"
+                app:layout_constraintTop_toBottomOf="@+id/radioIntSpk"
+                tools:layout_editor_absoluteX="177dp" />
+
+            <RadioButton
+                android:id="@+id/radioIntSpk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Internal"
+                android:textSize="18sp"
+                android:onClick="OnSpeakerSelection"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/radioGroupSPK"
+                tools:layout_editor_absoluteY="3dp" />
+
+            <RadioButton
+                android:id="@+id/radioExtSpk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="External"
+                android:textSize="18sp"
+                android:onClick="OnSpeakerSelection"
+                tools:layout_editor_absoluteX="166dp"
+                tools:layout_editor_absoluteY="140dp" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <TextView
+        android:id="@+id/state"
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+
+</LinearLayout>
