@@ -26,26 +26,28 @@ public class MainActivity extends AppCompatActivity {
     ImageButton button_power;
     Switch switch_volumeMute;
     RadioGroup radio_spkSelection;
+    RadioGroup radio_InputSelection;
     Vibrator vibrator;
 
     UdpClientHandler udpClientHandler;
     UdpClientThread udpClientThread;
 
     TextView textViewState;
-    String IPAddr = "10.100.102.183";
+    String IPAddr = "10.100.102.13";
     Integer Port = 4555;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button_power =  (ImageButton) findViewById(R.id.imageButtonPower);
-        button_volumeUP = (ImageButton) findViewById(R.id.imageButtonVolUp);
-        button_volumeDown = (ImageButton) findViewById(R.id.imageButtonVolDown);
-        switch_volumeMute = (Switch) findViewById(R.id.switchVolMute);
-        radio_spkSelection= (RadioGroup) findViewById(R.id.radioGroupSPK);
+        button_power =   findViewById(R.id.imageButtonPower);
+        button_volumeUP =  findViewById(R.id.imageButtonVolUp);
+        button_volumeDown = findViewById(R.id.imageButtonVolDown);
+        switch_volumeMute = findViewById(R.id.switchVolMute);
+        radio_spkSelection=  findViewById(R.id.radioGroupSPK);
+        radio_InputSelection =  findViewById(R.id.radioInputSel);
 
-        textViewState = (TextView)findViewById(R.id.state);
+        textViewState = findViewById(R.id.state);
         button_volumeUP.setOnClickListener(button_volumeUPOnClickListener);
         button_volumeDown.setOnClickListener(button_volumeDownOnClickListener);
         switch_volumeMute.setOnClickListener(switch_volumeMuteOnClickListener);
@@ -130,6 +132,21 @@ public class MainActivity extends AppCompatActivity {
         //vibrator.vibrate(100);
         //            button_volumeUP.setEnabled(false);
     };
+
+    public void OnInputSelection (View view) {
+        String InputSel = "";
+        switch(radio_InputSelection.getCheckedRadioButtonId()){
+            case R.id.radioButtonSelAux:
+                InputSel = "SEL_AUX";
+                break;
+            case R.id.radioButtonSelTuner:
+                InputSel = "SEL_TUN";
+                break;
+        }
+        udpClientThread = new UdpClientThread(IPAddr,Port,InputSel,udpClientHandler);
+        udpClientThread.start();
+    }
+
 
 
     private void updateState(String state){
